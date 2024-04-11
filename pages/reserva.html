@@ -126,6 +126,10 @@ SALA DE AULA</a>
                   <span>Software Específico</span>
                 </div>
                 <div class="inputbox">
+                  <input type="text" placeholder="Digita sua resposta..." id="valueInput" required="required" name="Equipamento">
+                  <span>Equipamento</span>
+                </div>
+                <div class="inputbox">
                   <input type="text" placeholder="Digite sua Observação" id="valueInput" required="required" name="Observação">
                   <span>Observação:</span>
                 </div>
@@ -697,3 +701,26 @@ setInterval(salvarTokenNoLocalStorage,100);
     top: -50%;
 }
 </style>
+
+
+<script>
+var inputText = document.getElementsByName("Professor")[0];
+inputText.addEventListener("input", function() {
+    var textoDigitado = inputText.value;
+
+    if (textoDigitado.length > 0) {
+        var palavras = textoDigitado.split(' ');
+
+        var textoConvertido = palavras.map(function(palavra) {
+            if (palavra.length > 0) {
+                return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
+            } else {
+                return '';
+            }
+        }).join(' ');
+        inputText.value = textoConvertido;
+    }
+});
+
+
+</script>

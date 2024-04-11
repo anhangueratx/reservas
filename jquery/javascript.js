@@ -111,4 +111,3 @@ var chart = new Chart(ctx, {
     }
   }
 });
-
